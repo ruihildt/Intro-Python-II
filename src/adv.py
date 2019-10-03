@@ -8,7 +8,7 @@ room = {
     'outside':  Room("Outside Cave Entrance", "North of you, the cave mount beckons"),
 
     'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
-passages run north and east.""", [Item("Percy", "also known as the pitchfork from hell")]),
+passages run north and east.""", [Item("Percy", "also known as the pitchfork from Hell")]),
 
     'overlook': Room("Grand Overlook", """A steep cliff appears before you, falling
 into the darkness. Ahead to the north, a light flickers in
@@ -71,8 +71,10 @@ done = False
 
 while not done:
     # Print the current room name and its description
-    output = f'You are now in the {player.current_room.name}:\n'
-    output +=f'{player.current_room.description}.\n'
+    output =  f'You are now in the {player.current_room.name}:\n'
+    output += f'{player.current_room.description}.\n'
+    output += f'{player.current_room}'
+
     print(output)
     # Waits for user input and decides what to do.
     s = input("Command > ").strip().lower()
@@ -94,14 +96,4 @@ while not done:
                 print(f'\t - {i}')
 
     else:
-        print(f"The command  isn't valid")
-
-    # # Print an error message if the movement isn't allowed.
-    # if str(selection) != ("n" or "s" or "w" or "e"):
-    #     print("Invalid command, chose one of the available options")
-    # # If the user enters a cardinal direction, attempt to move to the room there.
-    # if str(selection) in directions:
-    #     change_room(selection)
-
-    # def change_room(d):
-    #     player.current_room = player.current_room 
+        print(f"The command isn't valid. Try again.")

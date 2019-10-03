@@ -1,6 +1,6 @@
 # Implement a class to hold room information. This should have name and
 # description attributes.
-
+from item import Item
 
 class Room:
 
@@ -10,8 +10,20 @@ class Room:
         self.inventory = inventory
 
     def __str__(self):
-        output = f'{self.name}'
+        output = ''
         if len(self.inventory) == 0:
             output = f'There are no items in the room.'
-        for i in self.inventory:
-            output += f'  * {str(i)}'
+        if len(self.inventory) == 1:
+            output += f'There is the following item:'
+            output += f'\n * {self.inventory[0]}'
+        else:
+            output += f'There are the following items:'
+            for i in self.inventory:
+                output += f'\n * {i}'
+        return output
+
+
+# outside = Room("Foyer", """Dim light filters in from the south. Dusty
+# passages run north and east.""", [Item("Percy", "also known as the pitchfork from hell"), Item("Squasher", " a tea spoon")])
+
+# print(outside)
