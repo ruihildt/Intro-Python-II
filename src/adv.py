@@ -42,11 +42,26 @@ def movePlayer(dir, current_room):
     # see if room has destination attrib
     if hasattr(current_room, attrib):
         return getattr(current_room, attrib)
-    
+
     # otherwise they can't move in that direction
     print("You can't go that way")
 
     return current_room
+
+def startAction(action, item):
+    if action == "get" or "take":
+        for i in player.current_room.inventory:
+            if i.name.lower() == item:
+                # Add to the player inventory 
+                player.inventory.append(i)
+                # Remove from the room inventory
+                print(f'You\'ve added {i.name} to your inventory')
+            else:
+                print("This item isn't in the room, you can't pick it up")
+
+    # if action == "drop"
+        # check if item is in the
+
 
 #
 # Main
@@ -54,10 +69,6 @@ def movePlayer(dir, current_room):
 
 # Make a new player object that is currently in the 'outside' room.
 player = Player("Rob Zombie", room['outside'])
-player.inventory.append("Knife")
-player.inventory.append("Helmet")
-player.inventory.append("Dog")
-
 
 # Welcome message
 welcome = ""
@@ -78,6 +89,15 @@ while not done:
     print(output)
     # Waits for user input and decides what to do.
     s = input("Command > ").strip().lower()
+    # TODO Split the command
+    sList = s.split()
+
+    if len(sList) == 2:
+        action = sList[0]
+        item = sList[1]
+
+        startAction(action, item)
+
 
     # If the user enters "q", quit the game.
     if s == "q":

@@ -4,10 +4,12 @@ from item import Item
 
 class Room:
 
-    def __init__(self, name, description, inventory = []):
+    def __init__(self, name, description, inventory = None):
         self.name = name
         self.description = description
         self.inventory = inventory
+        if inventory is None:
+            self.inventory = []
 
     def __str__(self):
         output = ''
@@ -16,7 +18,7 @@ class Room:
         if len(self.inventory) == 1:
             output += f'There is the following item:'
             output += f'\n * {self.inventory[0]}'
-        else:
+        if len(self.inventory) > 1:
             output += f'There are the following items:'
             for i in self.inventory:
                 output += f'\n * {i}'
