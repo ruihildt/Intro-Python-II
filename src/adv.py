@@ -36,7 +36,7 @@ room['treasure'].s_to = room['narrow']
 # helpers functions
 
 def movePlayer(dir, current_room):
-    attrib = dir + "_to"
+    attrib = f'{dir}_to'
 
     # see if room has destination attrib
     if hasattr(current_room, attrib):
