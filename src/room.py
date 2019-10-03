@@ -4,10 +4,14 @@
 
 class Room:
 
-    def __init__(self, name, description):
+    def __init__(self, name, description, inventory = []):
         self.name = name
         self.description = description
-        self.items = []
+        self.inventory = inventory
 
     def __str__(self):
-        return f'{self.name}'
+        output = f'{self.name}'
+        if len(self.inventory) == 0:
+            output = f'There are no items in the room.'
+        for i in self.inventory:
+            output += f'  * {str(i)}'
