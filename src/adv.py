@@ -54,11 +54,11 @@ def startAction(action, item):
             if i.name.lower() == item:
                 # Add to the player inventory 
                 player.inventory.append(i)
-                # Remove from the room inventory
+                # TODO Remove from the room inventory
                 print(f'You\'ve added {i.name} to your inventory')
             else:
                 print("This item isn't in the room, you can't pick it up")
-
+    # TODO Add possibility to drop item
     # if action == "drop"
         # check if item is in the
 
@@ -89,15 +89,14 @@ while not done:
     print(output)
     # Waits for user input and decides what to do.
     s = input("Command > ").strip().lower()
-    # TODO Split the command
     sList = s.split()
 
     if len(sList) == 2:
         action = sList[0]
         item = sList[1]
-
         startAction(action, item)
 
+        # TODO Make sure output is clean with 2 words
 
     # If the user enters "q", quit the game.
     if s == "q":

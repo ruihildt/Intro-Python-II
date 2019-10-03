@@ -33,44 +33,44 @@ Up to this point, you've gotten your feet wet by working on a bunch of small Pyt
 The `/src` directory contains the files `adv.py`, which is where the main logic for the game should live, `room.py`, which will contain the definition of the Room class, and `player.py`, which will contain the definition of the Player class.
 
 
-* Add a REPL parser to `adv.py` that accepts directional commands to move the player
-  * After each move, the REPL should print the name and description of the player's current room
-  * Valid commands are `n`, `s`, `e` and `w` which move the player North, South, East or West
-  * The parser should print an error if the player tries to move where there is no room.
+* [x] Add a REPL parser to `adv.py` that accepts directional commands to move the player
+  * [x] After each move, the REPL should print the name and description of the player's current room
+  * [x] Valid commands are `n`, `s`, `e` and `w` which move the player North, South, East or West
+  * [x] The parser should print an error if the player tries to move where there is no room.
 
-* Put the Room class in `room.py` based on what you see in `adv.py`.
+* [x] Put the Room class in `room.py` based on what you see in `adv.py`.
 
-  * The room should have `name` and `description` attributes.
+  * [x] The room should have `name` and `description` attributes.
 
-  * The room should also have `n_to`, `s_to`, `e_to`, and `w_to` attributes
+  * [x] The room should also have `n_to`, `s_to`, `e_to`, and `w_to` attributes
     which point to the room in that respective direction.
 
-* Put the Player class in `player.py`.
-  * Players should have a `name` and `current_room` attributes
+* [x] Put the Player class in `player.py`.
+  * [x] Players should have a `name` and `current_room` attributes
 
 
-* Create a file called `item.py` and add an `Item` class in there.
+* [x] Create a file called `item.py` and add an `Item` class in there.
 
-  * The item should have `name` and `description` attributes.
+  * [x] The item should have `name` and `description` attributes.
 
      * Hint: the name should be one word for ease in parsing later.
 
-  * This will be the _base class_ for specialized item types to be declared
+  * [x] This will be the _base class_ for specialized item types to be declared
     later.
 
-* Add the ability to add items to rooms.
+* [x] Add the ability to add items to rooms.
 
-  * The `Room` class should be extended with a `list` that holds the `Item`s
+  * [x] The `Room` class should be extended with a `list` that holds the `Item`s
     that are currently in that room.
 
-  * Add functionality to the main loop that prints out all the items that are
+  * [x] Add functionality to the main loop that prints out all the items that are
     visible to the player when they are in that room.
 
-* Add capability to add `Item`s to the player's inventory. The inventory can
+* [x] Add capability to add `Item`s to the player's inventory. The inventory can
   also be a `list` of items "in" the player, similar to how `Item`s can be in a
   `Room`.
 
-* Add a new type of sentence the parser can understand: two words.
+* [x] Add a new type of sentence the parser can understand: two words.
 
   * Until now, the parser could just understand one sentence form:
 
@@ -87,31 +87,31 @@ The `/src` directory contains the files `adv.py`, which is where the main logic 
   * Split the entered command and see if it has 1 or 2 words in it to determine
     if it's the first or second form.
 
-* Implement support for the verb `get` followed by an `Item` name. This will be
+* [x] Implement support for the verb `get` followed by an `Item` name. This will be
   used to pick up `Item`s.
 
-  * If the user enters `get` or `take` followed by an `Item` name, look at the
+  * [x] If the user enters `get` or `take` followed by an `Item` name, look at the
     contents of the current `Room` to see if the item is there.
 
-     * If it is there, remove it from the `Room` contents, and add it to the
+     * [ ] If it is there, remove it from the `Room` contents, and add it to the
        `Player` contents.
 
-     * If it's not there, print an error message telling the user so.
+     * [x] If it's not there, print an error message telling the user so.
 
-     * Add an `on_take` method to `Item`.
+     * [ ] Add an `on_take` method to `Item`.
 
-        * Call this method when the `Item` is picked up by the player.
+        * [ ] Call this method when the `Item` is picked up by the player.
 
         * `on_take` should print out "You have picked up [NAME]" when you pick up an item.
 
         * The `Item` can use this to run additional code when it is picked up.
 
-     * Add an `on_drop` method to `Item`. Implement it similar to `on_take`.
+     * [ ] Add an `on_drop` method to `Item`. Implement it similar to `on_take`.
 
-* Implement support for the verb `drop` followed by an `Item` name. This is the
+* [ ] Implement support for the verb `drop` followed by an `Item` name. This is the
   opposite of `get`/`take`.
 
-* Add the `i` and `inventory` commands that both show a list of items currently
+* [x] Add the `i` and `inventory` commands that both show a list of items currently
   carried by the player.
 
 
