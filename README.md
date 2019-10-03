@@ -93,7 +93,7 @@ The `/src` directory contains the files `adv.py`, which is where the main logic 
   * [x] If the user enters `get` or `take` followed by an `Item` name, look at the
     contents of the current `Room` to see if the item is there.
 
-     * [ ] If it is there, remove it from the `Room` contents, and add it to the
+     * [x] If it is there, remove it from the `Room` contents, and add it to the
        `Player` contents.
 
      * [x] If it's not there, print an error message telling the user so.

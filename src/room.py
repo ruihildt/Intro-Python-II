@@ -13,15 +13,16 @@ class Room:
 
     def __str__(self):
         output = ''
-        if len(self.inventory) == 0:
-            output = f'There are no items in the room.'
+        # if len(self.inventory) == 0:
+        #     output = f'\n(there is no item in the room.)'
         if len(self.inventory) == 1:
-            output += f'There is the following item:'
+            output += f'\nThere is the following item:'
             output += f'\n * {self.inventory[0]}'
         if len(self.inventory) > 1:
-            output += f'There are the following items:'
+            output += f'\nThere are the following items:'
             for i in self.inventory:
                 output += f'\n * {i}'
+        output += '\n'
         return output
 
 
