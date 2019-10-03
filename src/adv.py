@@ -54,12 +54,11 @@ def isInInventory(item_name, inventory):
     return False
 
 def startAction(action, item_name):
-    print('you typed: "', action, item_name,'"')
-    if action != ("get" or "take" or "remove" or "drop"):
+    if action not in ["get", "take", "remove", "drop"]:
         print("This isn't a valid command. Please try again.")
-        return 
+        # return
 
-    elif action == ("get" or "take"):
+    elif action in ["get", "take"]:
         if isInInventory(item_name, player.current_room.inventory) == True:
             for i in player.current_room.inventory:
                 if i.name.lower() == item_name:
@@ -67,11 +66,12 @@ def startAction(action, item_name):
                     player.inventory.append(i)
                     # Remove from the room inventory
                     player.current_room.inventory.remove(i)
-                    print(f'\nYou\'ve added {i.name} to your inventory.')
+                    i.on_take()
+                    # print(f'\nYou\'ve added {i.name} to your inventory.')
                     return
         print("This item isn't in the room, you can't pick it up.")
 
-    elif action == ("remove" or "drop"):
+    elif action in ["remove", "drop"]:
         if isInInventory(item_name, player.inventory) == True:
             for i in player.inventory:
                 if i.name.lower() == item_name:
@@ -79,7 +79,8 @@ def startAction(action, item_name):
                     player.current_room.inventory.append(i)
                     # Remove from the player inventory
                     player.inventory.remove(i)
-                    print(f'\nYou\'ve dropped {i.name} to your inventory.')
+                    i.on_drop()
+                    # print(f'\nYou\'ve dropped {i.name} from your inventory.')
                     return
         print("This item isn't in your inventory, you can't drop it.")
 
